@@ -13,9 +13,10 @@ function handleResponse(response){
     ready: true,
     temperature: response.data.main.temp,
     humidity: response.data.main.humidity,
-    date: new Date(response.data.dt*1000),
+    date: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
-    iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+    iconUrl:
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`;
     wind: response.data.speed,
     city: response.data.name,
   });
